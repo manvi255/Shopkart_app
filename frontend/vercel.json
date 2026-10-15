@@ -1,0 +1,24 @@
+{
+  "rewrites": [
+    {
+      "source": "/customers/:path*",
+      "destination": "https://shopkart-app-cuob.onrender.com/customers/:path*"
+    },
+    {
+      "source": "/products/:path*",
+      "destination": "https://shopkart-app-cuob.onrender.com/products/:path*"
+    },
+    {
+      "source": "/wishlist/:path*",
+      "destination": "https://shopkart-app-cuob.onrender.com/wishlist/:path*"
+    },
+    {
+      "source": "/cart/:path*",
+      "destination": "https://shopkart-app-cuob.onrender.com/cart/:path*"
+    },
+    {
+      "source": "/orders/:path*",
+      "destination": "https://shopkart-app-cuob.onrender.com/orders/:path*"
+    }
+  ]
+}

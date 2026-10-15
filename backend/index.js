@@ -17,8 +17,23 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
+const allowedOrigins = new Set([
+    "http://localhost:5173",
+    "https://shopkart-o7xzri3fl-manvi255s-projects.vercel.app",
+    ...(process.env.FRONTEND_ORIGINS || "")
+        .split(",")
+        .map((origin) => origin.trim())
+        .filter(Boolean),
+]);
+
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin(origin, callback) {
+        if (!origin || allowedOrigins.has(origin)) {
+            return callback(null, true);
+        }
+
+        return callback(new Error(`Origin ${origin} is not allowed by CORS`));
+    },
     credentials: true,
 }));
 

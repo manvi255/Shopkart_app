@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "https://shopkart-app-cuob.onrender.com",
+    baseURL: import.meta.env.DEV ? "http://localhost:5000" : "",
     withCredentials: true
 });
 
