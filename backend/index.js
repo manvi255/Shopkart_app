@@ -19,7 +19,7 @@ app.use(cookieParser());
 
 const allowedOrigins = new Set([
     "http://localhost:5173",
-    "https://shopkart-o7xzri3fl-manvi255s-projects.vercel.app",
+    "https://shopkart-app-mu.vercel.app",
     ...(process.env.FRONTEND_ORIGINS || "")
         .split(",")
         .map((origin) => origin.trim())
