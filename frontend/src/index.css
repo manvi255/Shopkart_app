@@ -1,0 +1,75 @@
+:root {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: #24231f;
+  background: #faf9f6;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+
+  --color-ink: #24231f;
+  --color-muted: #77756e;
+  --color-paper: #faf9f6;
+  --color-white: #fff;
+  --color-line: #e8e6df;
+  --color-accent: #a44e36;
+  --color-accent-dark: #843c29;
+  --color-success: #2f704b;
+  --color-danger: #a53d32;
+  --radius-small: 6px;
+  --radius-card: 10px;
+  --shadow-soft: 0 12px 36px rgba(36, 35, 31, 0.055);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+body,
+button,
+input,
+select {
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+button,
+a,
+input,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input,
+select {
+  font-size: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+::selection {
+  color: var(--color-white);
+  background: var(--color-accent);
+}
