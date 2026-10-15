@@ -85,7 +85,7 @@ Open the URL printed by Vite, usually `http://localhost:5173`.
 
 For local development, the frontend API client uses `http://localhost:5000`, and the backend allows credentialed requests from `http://localhost:5173`. If you change either port or host, update the corresponding frontend API base URL and backend CORS origin to match.
 
-For deployment, configure the Vercel project root as `frontend` so `frontend/vercel.json` is applied. It proxies API requests through the frontend origin to avoid cross-site cookie restrictions. Set `NODE_ENV=production` on Render so authentication cookies use `Secure` and `SameSite=None`. If you use another frontend hostname, add it to the comma-separated `FRONTEND_ORIGINS` environment variable on Render.
+For deployment, configure the Vercel project root as `frontend` so `frontend/vercel.json` is applied. Its API rewrites proxy requests through the frontend origin to avoid cross-site cookie restrictions, and its final rewrite serves the single-page app for direct route loads such as `/login`. Set `NODE_ENV=production` on Render so authentication cookies use `Secure` and `SameSite=None`. If you use another frontend hostname, add it to the comma-separated `FRONTEND_ORIGINS` environment variable on Render.
 
 ### 3. Try the application
 
@@ -130,7 +130,7 @@ The frontend does not define a test script, and the backend's `npm test` script 
 ## Troubleshooting
 
 - **MongoDB connection fails:** Confirm MongoDB is running (for a local database) and that `MONGO_URI` is valid.
-- **The frontend cannot reach the API:** Confirm the backend is running and that its origin is listed in `FRONTEND_ORIGINS` (or is the configured Vercel or local origin). For production, confirm the Vercel project root is `frontend` so its API rewrites are active.
+- **Refreshing a frontend route returns 404 or API requests fail:** Confirm the Vercel project root is `frontend` so `frontend/vercel.json` applies. Its rewrites support direct frontend routes and proxy API requests to Render.
 - **Login or cart requests do not retain authentication:** The application uses credentialed requests and HTTP-only cookies. In production, confirm `NODE_ENV=production` on Render and use the Vercel API rewrites so cookies remain first-party to the frontend.
 - **No products appear:** The repository does not include a product seed script. Add product records to the connected database before browsing.
 - **Razorpay checkout cannot start:** Verify the backend Razorpay test key ID and secret, and confirm the browser can load Razorpay Checkout.

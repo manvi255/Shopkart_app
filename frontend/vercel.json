@@ -19,6 +19,10 @@
     {
       "source": "/orders/:path*",
       "destination": "https://shopkart-app-cuob.onrender.com/orders/:path*"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/index.html"
     }
   ]
 }
